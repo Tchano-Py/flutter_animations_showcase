@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animations_showcase/pages/animated_builder_and_transform_page.dart';
+import 'package:flutter_animations_showcase/pages/chained_animations_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => MyHomePage(title: ' Animations in Flutter'),
-        '/AnimatedBuilderAndTransformPage': (context) => const AnimatedBuilderAndTransformPage(),
+        '/AnimatedBuilderAndTransformPage': (context) =>
+            const AnimatedBuilderAndTransformPage(),
+        '/ChainedAnimationsPage': (context) => const ChainedAnimationsPage(),
       },
     );
   }
@@ -43,13 +46,23 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
+          spacing: 20,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/AnimatedBuilderAndTransformPage');
+                Navigator.pushNamed(
+                  context,
+                  '/AnimatedBuilderAndTransformPage',
+                );
               },
               child: Text("AnimatedBuilder and Transform"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/ChainedAnimationsPage');
+              },
+              child: const Text("Chained Animations"),
             ),
           ],
         ),
